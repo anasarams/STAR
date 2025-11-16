@@ -1,6 +1,4 @@
-// ----------------------------------
-// NAVBAR
-// ----------------------------------
+
 const toggler = document.querySelector("#toggler");
 const navbar = document.querySelector(".navbar");
 
@@ -10,16 +8,14 @@ toggler.addEventListener("change", () => {
     : "polygon(0 0, 100% 0, 100% 0, 0 0)";
 });
 
-// ----------------------------------
-// FAVORITOS
-// ----------------------------------
+
 
 const productHeartButtons = document.querySelectorAll(".box .fa-heart");
 const headerHeart = document.querySelector(".header-heart") || document.querySelector("header .fa-heart");
 
 let favoriteCountSpan = document.getElementById("favorite-count");
 
-// cria contador no header, caso não exista
+
 if (!favoriteCountSpan && headerHeart) {
   const span = document.createElement("span");
   span.id = "favorite-count";
@@ -30,13 +26,13 @@ if (!favoriteCountSpan && headerHeart) {
 favoriteCountSpan = document.getElementById("favorite-count");
 let totalFavoritos = 0;
 
-// atualiza o contador
+
 function updateFavoriteDisplay(count) {
   favoriteCountSpan.textContent = count;
   favoriteCountSpan.style.display = count > 0 ? "inline-block" : "none";
 }
 
-// lógica de favoritar itens
+
 productHeartButtons.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -55,9 +51,7 @@ productHeartButtons.forEach((btn) => {
   });
 });
 
-// ----------------------------------
-// ZOOM NOS PRODUTOS
-// ----------------------------------
+
 const produtos = document.querySelectorAll(".box");
 
 produtos.forEach((produto) => {
@@ -70,9 +64,7 @@ produtos.forEach((produto) => {
   });
 });
 
-// ----------------------------------
-// FILTRO DE DESCONTO
-// ----------------------------------
+
 document.addEventListener("DOMContentLoaded", () => {
   const filtroBotoes = document.querySelectorAll(".filtro-desconto button");
   const todasAsBoxes = document.querySelectorAll(".products .box");
@@ -106,9 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
   filtrarProdutos("all");
 });
 
-// ----------------------------------
-// CARRINHO
-// ----------------------------------
+
 
 let cartCount = 0;
 let totalPrice = 0;
