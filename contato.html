@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Star</title>
+
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+ <link rel="stylesheet" href="style.css">
+ <link rel="icon" href="brilho de estrela de prata.jpeg" type="image/png">
+</head>
+
+<body>
+
+<header>
+  <input type="checkbox" id="toggler">
+  <label for="toggler" class="fas fa-bars"></label>
+
+  <a href="#" class="logo">Star<span>&#9734;</span></a>
+
+  <nav class="navbar">
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="contato.html">Contato</a>
+    <a href="cadastrese.html">Cadastre-se</a>
+  </nav>
+
+  <div class="icons">
+    <a href="#" class="fas fa-heart header-heart"></a>
+    <a href="#" class="fas fa-shopping-cart"></a>
+    <a href="#" class="fas fa-user"></a>
+  </div>
+</header>
+
+<section class="contato" id="contato">
+    <h1 class="heading"><span>Fale </span> Conosco</h1>
+
+    <div class="row">
+        <form id="form-contato">
+
+            <input id="nome" type="text" placeholder="nome" class="box">
+
+            <input id="email" type="email" placeholder="email" class="box">
+
+            <input id="numero" type="number" placeholder="número" class="box">
+
+            <textarea id="mensagem" class="box" placeholder="mensagem" maxlength="150" cols="30" rows="10"></textarea>
+
+            <input type="submit" value="enviar mensagem" class="btn">
+
+            <!-- Área para a mensagem de sucesso -->
+            <p id="msg-sucesso" style="display:none; color: rgb(0, 173, 0); font-weight: bold; margin-top: 10px;">
+                Mensagem enviada com sucesso!
+            </p>
+        </form>
+    </div>
+</section>
+
+
+<section class="footer">
+  <div class="box-container">
+
+    <div class="box">
+      <h3>links rápidos</h3>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      <a href="cadastrese.html">Cadastre-se</a>
+    </div>
+
+    <div class="box">
+      <h3>links extras</h3>
+      <a href="#">minha conta</a>
+      <a href="#">meu carrinho</a>
+      <a href="#">favoritos</a>
+    </div>
+
+    <div class="box">
+      <h3>locais</h3>
+      <a href="#">Japão</a>
+      <a href="#">EUA</a>
+      <a href="#">Índia</a>
+      <a href="#">China</a>
+      <a href="#">França</a>
+      <a href="#">Portugal</a>
+    </div>
+
+    <div class="box">
+      <h3>mais informações</h3>
+      <a href="#">(21) 4000-1234</a>
+      <a href="#">lojastar@gmail.com</a>
+      <a href="#">(11) 3000-0000</a>
+    </div>
+
+  </div>
+</section>
+
+<script >
+
+
+
+const form = document.getElementById("form-contato");
+const nomeInput = document.getElementById("nome");
+const emailInput = document.getElementById("email");
+const numeroInput = document.getElementById("numero");
+const mensagemInput = document.getElementById("mensagem");
+
+
+const counter = document.createElement("p");
+counter.style.fontSize = "12px";
+counter.style.color = "#ccc";
+counter.style.marginTop = "-10px";
+mensagemInput.insertAdjacentElement("afterend", counter);
+
+mensagemInput.addEventListener("input", () => {
+  counter.textContent = `${mensagemInput.value.length}/150 caracteres`;
+});
+
+emailInput.addEventListener("input", () => {
+  const regex = /\S+@\S+\.\S+/;
+  emailInput.style.borderColor = regex.test(emailInput.value) ? "#682cbf" : "red";
+});
+
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  const regex = /\S+@\S+\.\S+/;
+
+  if (!nomeInput.value.trim() ||
+      !emailInput.value.trim() ||
+      !numeroInput.value.trim() ||
+      !mensagemInput.value.trim()) {
+    alert("Por favor, preencha todos os campos antes de enviar.");
+    return;
+  }
+
+  if (!regex.test(emailInput.value.trim())) {
+    alert("Por favor, insira um e-mail válido.");
+    return;
+  }
+
+  form.innerHTML = `
+  <h2 style="
+      color:white; 
+      margin-top:20px; 
+      text-align:center;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      text-transform: none;
+  ">
+    Obrigado por entrar em contato! 💜<br>
+    Sua mensagem foi enviada com sucesso!
+  </h2>
+`;
+});
+
+</script>
+</body>
+</html>

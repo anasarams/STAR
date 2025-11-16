@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Star</title>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+ <link rel="stylesheet" href="style.css">
+ <link rel="icon" href="brilho de estrela de prata.jpeg" type="image/png">
+ </head>
+ <body>
+    
+<header>
+  <input type="checkbox" name="" id="toggler">
+  <label for="toggler" class="fas fa-bars"></label>
+  <a href="#" class="logo">Star<span>&#9734;</span></a>
+  <nav class="navbar">
+    <a href="index.html">Início</a>
+     <a href="sobre.html">Sobre</a>
+      <a href="contato.html">Contato</a>
+      
+  
+      <a href="cadastrese.html">Cadastre-se</a>
+    
+  </nav>
+
+  <div class="icons">
+    <a href="#" class="fas fa-heart"></a>
+ 
+   <a href="#" class="fas fa-shopping-cart"></a>
+  
+   <a href="#" class="fas fa-user"></a>
+  
+
+
+  </div>
+
+
+</header>
+
+
+
+<section class="cadastrese" id="cadastrese">
+    <h1 class="heading"><span>Faça </span> Seu Cadastro</h1>
+    <div class="row">
+       <form id="cadastro-form">
+<input type="text" placeholder="nome" class="box" required>
+<input type="text"  name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required style="width:350px; height: 40px; font-size: 15px; color: grey; border-radius: 5px; margin-top: 5px;margin-bottom: 5px;">
+<input type="number" placeholder="data de nascimento" class="box" required>
+
+    <select id="genero" name="genero" required style="width:350px; height: 40px; font-size: 15px; color: grey; border-radius: 5px; margin-top: 5px;">
+      <option value="">Selecione o gênero</option>
+      <option value="feminino">Mulher</option>
+      <option value="masculino">Homem</option>
+      <option value="outros">Outros</option>
+      <option value="nao-dizer">Prefiro não dizer</option>
+    </select><br><br>
+
+<input type="email" placeholder="email" class="box" required>
+
+<input type="number" placeholder="número" class="box" required>
+
+
+
+
+<input type="password" placeholder="senha" class="box" required>
+
+<input type="password" placeholder="confirmar senha" class="box" required>
+
+ 
+    <select id="estado" name="estado" required style="width:350px; height: 40px; font-size: 15px; color: grey; border-radius: 5px;">
+      <option value="">Selecione um estado</option>
+      <option value="AC">Acre</option>
+      <option value="AL">Alagoas</option>
+      <option value="AP">Amapá</option>
+      <option value="AM">Amazonas</option>
+      <option value="BA">Bahia</option>
+      <option value="CE">Ceará</option>
+      <option value="DF">Distrito Federal</option>
+      <option value="ES">Espírito Santo</option>
+      <option value="GO">Goiás</option>
+      <option value="MA">Maranhão</option>
+      <option value="MT">Mato Grosso</option>
+      <option value="MS">Mato Grosso do Sul</option>
+      <option value="MG">Minas Gerais</option>
+      <option value="PA">Pará</option>
+      <option value="PB">Paraíba</option>
+      <option value="PR">Paraná</option>
+      <option value="PE">Pernambuco</option>
+      <option value="PI">Piauí</option>
+      <option value="RJ">Rio de Janeiro</option>
+      <option value="RN">Rio Grande do Norte</option>
+      <option value="RS">Rio Grande do Sul</option>
+      <option value="RO">Rondônia</option>
+      <option value="RR">Roraima</option>
+      <option value="SC">Santa Catarina</option>
+      <option value="SP">São Paulo</option>
+      <option value="SE">Sergipe</option>
+      <option value="TO">Tocantins</option>
+    </select><br><br>
+<textarea name="" class="box" placeholder="endereço completo" id="" cols="30" rows="10">
+</textarea>
+    
+
+
+
+<input type="submit" value="cadastrar-se" class="btn">
+</form>
+
+    </div>
+</section><section class="footer">
+<div class="box-container">
+<div class="box">
+<h3>links rápidos</h3>
+<a href="index.html">Início</a>
+<a href="sobre.html">Sobre</a>
+<a href="contato.html">Contato</a>
+<a href="cadastrese.html">Cadastre-se</a>
+</div>
+
+
+
+<div class="box">
+<h3>links extras</h3>
+<a href="#">minha conta</a>
+<a href="#">meu carrinho</a>
+<a href="#">favoritos</a>
+
+</div>
+
+<div class="box">
+<h3>locais</h3>
+<a href="#">Japão</a>
+<a href="#">EUA</a>
+<a href="#">Ídia</a>
+<a href="#">China</a>
+<a href="#">França</a>
+<a href="#">Portugal</a>
+</div>
+
+
+<div class="box">
+<h3>mais informações</h3>
+<a href="#">(21) 4000-1234</a>
+<a href="#">lojastar@gmail.com</a>
+<a href="#">(11) 3000-0000</a>
+
+
+</div>
+
+
+</div>
+</section>
+
+
+
+<script >// -------------------------
+// CADASTRO - validações
+// -------------------------
+
+const cadastroForm = document.getElementById("cadastro-form");
+
+if (cadastroForm) {
+  cadastroForm.addEventListener("submit", function (e) {
+    e.preventDefault(); // impede envio até validar
+
+    const cpf = cadastroForm.querySelector("input[name='cpf']");
+    const senha = cadastroForm.querySelectorAll("input[type='password']")[0];
+    const confirmarSenha = cadastroForm.querySelectorAll("input[type='password']")[1];
+
+    // --------------------
+    // VALIDAÇÃO CPF
+    // --------------------
+    const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
+    if (!cpfRegex.test(cpf.value)) {
+      alert("Digite um CPF válido no formato 000.000.000-00");
+      cpf.focus();
+      return;
+    }
+
+    // --------------------
+    // SENHAS IGUAIS
+    // --------------------
+    if (senha.value !== confirmarSenha.value) {
+      alert("As senhas não coincidem.");
+      confirmarSenha.focus();
+      return;
+    }
+
+    // --------------------
+    // Mensagem final bonita
+    // --------------------
+    cadastroForm.innerHTML = `
+      <h2 style="
+        color:white;
+        margin-top:20px;
+        text-align:center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        text-transform:none;
+        animation: fadeIn .6s ease;
+      ">
+        Cadastro realizado com sucesso! <br>  
+        Seja bem-vindo(a) à Star! ⭐
+      </h2>
+    `;
+  });
+
+  // ----------------------------
+  // Máscara automática no CPF
+  // ----------------------------
+  const cpfInput = cadastroForm.querySelector("input[name='cpf']");
+  cpfInput.addEventListener("input", () => {
+    let value = cpfInput.value.replace(/\D/g, "");
+    if (value.length > 11) value = value.slice(0, 11);
+
+    cpfInput.value = value
+      .replace(/^(\d{3})(\d)/, "$1.$2")
+      .replace(/^(\d{3})\.(\d{3})(\d)/, "$1.$2.$3")
+      .replace(/\.(\d{3})(\d)/, ".$1-$2");
+  });
+}
+</script>
+ </body>
+</html>
