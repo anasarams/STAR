@@ -596,11 +596,11 @@ section{
 }
 
 
-/* Sidebar do carrinho */
+
 .cart-sidebar {
   position: fixed;
   top: 0;
-  right: -350px; /* escondido */
+  right: -350px; 
   width: 350px;
   height: 100vh;
   background: #1c0422;
@@ -639,7 +639,7 @@ section{
   background: #ba87e9;
 }
 
-/* efeito de escurecer o fundo */
+
 .overlay {
   position: fixed;
   top: 0;
@@ -655,11 +655,11 @@ section{
   display: block;
 }
 
-/* Sidebar aberta */
+
 .cart-sidebar.active {
   right: 0;
 }
-/* Animação Reveal */
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -670,7 +670,7 @@ section{
   transform: translateY(0);
 }
 
-/* Botão voltar ao topo */
+
 .top-btn {
   position: fixed;
   bottom: 30px;
