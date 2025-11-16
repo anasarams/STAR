@@ -155,23 +155,19 @@
 
 
 
-<script >// -------------------------
-// CADASTRO - validações
-// -------------------------
+<script >
 
 const cadastroForm = document.getElementById("cadastro-form");
 
 if (cadastroForm) {
   cadastroForm.addEventListener("submit", function (e) {
-    e.preventDefault(); // impede envio até validar
+    e.preventDefault(); 
 
     const cpf = cadastroForm.querySelector("input[name='cpf']");
     const senha = cadastroForm.querySelectorAll("input[type='password']")[0];
     const confirmarSenha = cadastroForm.querySelectorAll("input[type='password']")[1];
 
-    // --------------------
-    // VALIDAÇÃO CPF
-    // --------------------
+  
     const cpfRegex = /^\d{3}\.\d{3}\.\d{3}-\d{2}$/;
     if (!cpfRegex.test(cpf.value)) {
       alert("Digite um CPF válido no formato 000.000.000-00");
@@ -179,18 +175,13 @@ if (cadastroForm) {
       return;
     }
 
-    // --------------------
-    // SENHAS IGUAIS
-    // --------------------
     if (senha.value !== confirmarSenha.value) {
       alert("As senhas não coincidem.");
       confirmarSenha.focus();
       return;
     }
 
-    // --------------------
-    // Mensagem final bonita
-    // --------------------
+
     cadastroForm.innerHTML = `
       <h2 style="
         color:white;
@@ -206,9 +197,7 @@ if (cadastroForm) {
     `;
   });
 
-  // ----------------------------
-  // Máscara automática no CPF
-  // ----------------------------
+
   const cpfInput = cadastroForm.querySelector("input[name='cpf']");
   cpfInput.addEventListener("input", () => {
     let value = cpfInput.value.replace(/\D/g, "");
